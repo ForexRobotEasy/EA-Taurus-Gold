@@ -1,0 +1,96 @@
+
+//+------------------------------------------------------------------+
+//|                                            EA Taurus Gold        |
+//|                                 Copyright © 2021 forexroboteasy.com |
+//|                                                  Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+#property strict
+
+// Global variables
+double DistancePip = 0.001; // Default distance in pips for a 5k account
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set specific parameters for account size
+    if (AccountBalance() >= 5000)
+    {
+        DistancePip = 0.001;
+    }
+    else if (AccountBalance() < 5000)
+    {
+        DistancePip = 0.002;
+    }
+    
+    // Print account-specific parameters
+    Print('Account Balance: ', AccountBalance());
+    Print('Distance Pip: ', DistancePip);
+    
+    // Add other initialization tasks here
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add any necessary cleanup tasks here
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Perform technical analysis
+    if (PerformTechnicalAnalysis())
+    {
+        // Perform fundamental analysis
+        if (PerformFundamentalAnalysis())
+        {
+            // Perform risk management
+            PerformRiskManagement();
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Perform technical analysis                                       |
+//+------------------------------------------------------------------+
+bool PerformTechnicalAnalysis()
+{
+    // Add code for analyzing market indicators and charts here
+    
+    // Determine entry and exit points for trades based on technical analysis
+    
+    return true;
+}
+
+//+------------------------------------------------------------------+
+//| Perform fundamental analysis                                     |
+//+------------------------------------------------------------------+
+bool PerformFundamentalAnalysis()
+{
+    // Add code for staying updated with news and economic events here
+    
+    // Adjust trading strategies based on fundamental analysis
+    
+    return true;
+}
+
+//+------------------------------------------------------------------+
+//| Perform risk management                                          |
+//+------------------------------------------------------------------+
+void PerformRiskManagement()
+{
+    // Add code for implementing risk management strategy here
+    
+    // Set stop-loss orders to minimize potential losses
+    
+    // Execute trades accordingly
+}
+
